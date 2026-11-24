@@ -7,7 +7,7 @@
 <meta name="description" content="Ollo Visuals는 AI 모델·제품 연출컷, 메타/SNS 광고소재, 상세페이지, 배너·포스터, 카드뉴스, AI 숏폼 영상 제작과 SNS 운영·메타 광고 운영 대행을 하는 AI 비주얼 스튜디오입니다.">
 <meta property="og:title" content="Ollo Visuals — AI 비주얼 스튜디오">
 <meta property="og:description" content="촬영 없이, 기획부터 최종 컷까지. 광고소재·상세페이지·AI 모델 이미지 제작.">
-<meta property="og:image" content="https://ollo-visuals.github.io/assets/works/p1.jpg">
+<meta property="og:image" content="https://ollo-visuals.github.io/assets/works/still-in-bloom-1.jpg">
 <link rel="icon" href="data:,">
 <meta name="theme-color" content="#f7f3e9">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Ollo Visuals","description":"AI 모델·제품 연출컷, 광고소재, 상세페이지, 배너·포스터, 카드뉴스, AI 숏폼 영상 제작","email":"ollo.visuals.kr@gmail.com","areaServed":"KR"}</script>
@@ -241,6 +241,24 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 .foot__mark{font-family:var(--display);font-size:clamp(56px,10vw,150px);line-height:.9;color:var(--silver);width:100%}
 .foot a:hover{color:var(--silver)}
 
+
+/* lightbox */
+.row{cursor:pointer}
+.row__cnt{color:var(--developer);font-size:13px}
+.lb{border:0;padding:0;margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;background:#25251d;color:#f7f3e9}
+.lb::backdrop{background:rgba(37,37,29,.6)}
+.lb[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.lb__top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:18px var(--gutter)}
+.lb__title{font-family:var(--display);font-size:clamp(24px,3vw,36px);line-height:1.15}
+.lb__meta{font-size:15px;color:#c9c5b2;margin-top:4px}
+.lb__close,.lb__bar button{width:48px;height:48px;border:1px solid rgba(247,243,233,.35);color:#f7f3e9;font-size:18px;flex:0 0 auto}
+.lb__close:hover,.lb__bar button:hover{background:#f7f3e9;color:#25251d}
+.lb__stage{min-height:0;display:flex;align-items:center;justify-content:center;padding:0 var(--gutter);overflow:hidden;touch-action:pan-y}
+.lb__stage img{max-width:100%;max-height:100%;object-fit:contain}
+.lb__stage.stack{display:block;overflow-y:auto;padding-bottom:24px}
+.lb__stage.stack img{display:block;max-height:none;width:min(720px,100%);margin:0 auto}
+.lb__bar{display:flex;align-items:center;justify-content:center;gap:20px;padding:16px;font-size:14px;color:#c9c5b2}
+.lb__bar[hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:0ms!important;animation:none!important}
   .ring path,.frame svg path,.ok path{stroke-dashoffset:0}
@@ -290,7 +308,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
       <div class="sheet__edge mono"><span>OLLO — 2026 · SHEET 01</span><span>AI 400</span></div>
       <div class="sheet__main-wrap" style="position:relative"><svg class="ok" viewBox="0 0 84 46" aria-hidden="true" style="--d:5"><path pathLength="1" d="M14 10 C 4 12, 3 34, 14 36 C 26 37, 28 12, 16 10"/><path pathLength="1" d="M36 8 L 34 38 M 52 8 L 36 24 L 54 38"/><path pathLength="1" d="M66 6 L 64 28 M 64 36 L 64 37"/></svg><div class="sheet__main">
         <video id="heroVideo" autoplay muted loop playsinline preload="auto"
-          poster="assets/works/p1.jpg"
+          poster="assets/works/still-in-bloom-1.jpg"
           aria-label="Still in Bloom — 백마와 얼굴을 맞댄 여성의 AI 무빙 포트레이트">
           <source src="assets/ollo-hero.mp4" type="video/mp4">
         </video>
@@ -308,11 +326,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
   <div class="wrap">
     <div class="sec__head">
       <h2 class="sec__title">작업 인덱스</h2>
-      <p class="sec__desc">분야별로 걸러 보세요. PC에서는 목록에 커서를 올리면 작업이 떠오릅니다.</p>
+      <p class="sec__desc">19개 프로젝트, 65컷. 분야별로 걸러 보고, 누르면 전체 컷이 열립니다.</p>
     </div>
     <div class="filters" role="group" aria-label="분야 필터" id="filters"></div>
     <ol class="index" id="index"></ol>
-    <p class="index-note">카드뉴스 · 원페이지 · 메타 광고 A/B 세트 전체 등 더 많은 작업은 문의 시 분야별 포트폴리오로 보내드립니다.</p>
+    <p class="index-note">목록을 누르면 작업 전체 컷을 크게 볼 수 있어요.</p>
   </div>
   <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
 </section>
@@ -326,8 +344,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
     </div>
     <div class="feat">
       <article class="card">
-        <a class="card__img" href="#contact" aria-label="바닐라 바이올렛 샤워젤 — 비슷한 작업 문의하기">
-          <img loading="lazy" src="assets/works/p3.jpg" alt="보라색 꽃 사이에 놓인 바닐라 바이올렛 샤워젤 병 광고 연출컷">
+        <a class="card__img" href="#works" data-open="vanilla-violet" aria-label="바닐라 바이올렛 — 4컷 크게 보기">
+          <img loading="lazy" src="assets/works/vanilla-violet-1.jpg" alt="보라색 꽃 사이에 놓인 바닐라 바이올렛 샤워젤 병 광고 연출컷">
         </a>
         <div class="card__meta">
           <h3 class="card__title">바닐라 바이올렛</h3>
@@ -336,8 +354,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
         <p class="card__desc">향의 노트를 꽃과 빛으로 옮긴 바디케어 광고컷. 피드·스토리 규격으로 변형해 광고소재 세트로 확장합니다.</p>
       </article>
       <article class="card">
-        <a class="card__img" href="#contact" aria-label="오가닉 앰플 — 비슷한 작업 문의하기">
-          <img loading="lazy" src="assets/works/p4.jpg" alt="습기 맺힌 유리 너머 올리브색 오가닉 앰플 병 연출컷">
+        <a class="card__img" href="#works" data-open="organic-ampoule" aria-label="오가닉 앰플 — 4컷 크게 보기">
+          <img loading="lazy" src="assets/works/organic-ampoule-1.jpg" alt="습기 맺힌 유리 너머 올리브색 오가닉 앰플 병 연출컷">
         </a>
         <div class="card__meta">
           <h3 class="card__title">오가닉 앰플</h3>
@@ -464,6 +482,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
   </div>
 </section>
 </main>
+<dialog class="lb" id="lb" aria-label="작업 크게 보기">
+  <div class="lb__top"><div><p class="lb__title" id="lbTitle"></p><p class="lb__meta" id="lbMeta"></p></div><button type="button" class="lb__close" id="lbClose" aria-label="닫기">✕</button></div>
+  <div class="lb__stage" id="lbStage"></div>
+  <div class="lb__bar"><button type="button" id="lbPrev" aria-label="이전 컷">←</button><span class="mono" id="lbCount"></span><button type="button" id="lbNext" aria-label="다음 컷">→</button></div>
+</dialog>
+
 
 <!-- 푸터 -->
 <footer class="foot" data-section="footer">
@@ -476,33 +500,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 
 <script type="application/json" id="opadog-data">
 {
-  "photos": {
-    "p1": "assets/works/p1.jpg",
-    "p2": "assets/works/p2.jpg",
-    "p3": "assets/works/p3.jpg",
-    "p4": "assets/works/p4.jpg",
-    "p5": "assets/works/p5.jpg",
-    "p6": "assets/works/p6.jpg",
-    "p7": "assets/works/p7.jpg",
-    "p8": "assets/works/p8.jpg"
-  },
-  "categories": [
-    {"key":"all","name":"전체"},
-    {"key":"model","name":"AI 모델"},
-    {"key":"product","name":"제품 연출"},
-    {"key":"ad","name":"광고소재·배너"},
-    {"key":"detail","name":"상세페이지"}
-  ],
-  "projects": [
-    {"no":"01","name":"Still in Bloom","client":"자체 콘셉트","field":"AI 모델 · 무빙 포트레이트","cat":"model","year":"2026","img":"p1","alt":"햇살 드는 정원에서 백마와 얼굴을 맞댄 여성의 AI 모델 이미지"},
-    {"no":"02","name":"아티장 다이닝","client":"콘셉트 작업 · 가구","field":"광고소재 · 시즌 배너","cat":"ad","year":"2026","img":"p2","alt":"따뜻한 조명 아래 원목 다이닝 테이블 세트 광고 이미지"},
-    {"no":"03","name":"바닐라 바이올렛","client":"콘셉트 작업 · 바디케어","field":"제품 연출 · SNS 광고","cat":"product","year":"2026","img":"p3","alt":"보라색 꽃 사이 샤워젤 병 연출컷"},
-    {"no":"04","name":"오가닉 앰플","client":"콘셉트 작업 · 스킨케어","field":"제품 연출 · 상세페이지","cat":"product","year":"2026","img":"p4","alt":"습기 맺힌 유리 너머 올리브색 앰플 병 연출컷"},
-    {"no":"05","name":"닥터페렌들리 프로바이오틱스","client":"콘셉트 작업 · 반려동물 영양제","field":"상세페이지 · AI 연출컷","cat":"detail","year":"2026","img":"p5","alt":"고양이와 반려동물 프로바이오틱스 제품이 담긴 상세페이지 상단"},
-    {"no":"06","name":"이혼·가사 상담 10종","client":"콘셉트 작업 · 법률 서비스","field":"메타 피드 광고 · A/B 세트","cat":"ad","year":"2026","img":"p6","alt":"네이비 배경에 공감형 카피를 담은 법률 상담 메타 광고 소재"},
-    {"no":"07","name":"캐나다 오로라 투어","client":"콘셉트 작업 · 여행","field":"PC·모바일 메인 배너","cat":"ad","year":"2026","img":"p7","alt":"오로라 아래 이글루 앞에 앉은 커플이 담긴 여행 프로모션 배너"},
-    {"no":"08","name":"Gloss Study","client":"자체 콘셉트 · 뷰티","field":"AI 모델 · 뷰티 클로즈업","cat":"model","year":"2026","img":"p8","alt":"립글로스를 바르는 AI 모델 뷰티 클로즈업"}
-  ],
+  "base": "assets/works/",
+  "categories": [{"key": "all", "name": "전체"}, {"key": "ad", "name": "광고소재"}, {"key": "model", "name": "AI 모델"}, {"key": "banner", "name": "배너"}, {"key": "detail", "name": "상세페이지"}, {"key": "card", "name": "카드뉴스·원페이지"}],
+  "projects": [{"no": "01", "slug": "still-in-bloom", "name": "Still in Bloom", "client": "자체 콘셉트", "field": "AI 모델 · 무빙 포트레이트", "cat": "model", "year": "2026", "imgs": ["still-in-bloom-1.jpg", "still-in-bloom-2.jpg"], "stack": false, "alt": "햇살 드는 정원에서 백마와 얼굴을 맞댄 여성의 AI 모델 이미지"}, {"no": "02", "slug": "vanilla-violet", "name": "바닐라 바이올렛", "client": "콘셉트 작업 · 바디케어", "field": "제품 연출 · SNS 광고 4컷", "cat": "ad", "year": "2026", "imgs": ["vanilla-violet-1.jpg", "vanilla-violet-2.jpg", "vanilla-violet-3.jpg", "vanilla-violet-4.jpg"], "stack": false, "alt": "보라색 꽃 사이 바닐라 바이올렛 샤워젤 광고컷"}, {"no": "03", "slug": "organic-ampoule", "name": "오가닉 앰플", "client": "콘셉트 작업 · 스킨케어", "field": "제품 연출 · 상세페이지 4컷", "cat": "ad", "year": "2026", "imgs": ["organic-ampoule-1.jpg", "organic-ampoule-2.jpg", "organic-ampoule-3.jpg", "organic-ampoule-4.jpg"], "stack": false, "alt": "올리브색 오가닉 앰플 병 연출컷"}, {"no": "04", "slug": "legal-divorce", "name": "이혼·가사 상담 10종", "client": "콘셉트 작업 · 법률 서비스", "field": "메타 피드 광고 · A/B 세트", "cat": "ad", "year": "2026", "imgs": ["legal-divorce-1.jpg", "legal-divorce-2.jpg", "legal-divorce-3.jpg", "legal-divorce-4.jpg", "legal-divorce-5.jpg", "legal-divorce-6.jpg", "legal-divorce-7.jpg", "legal-divorce-8.jpg", "legal-divorce-9.jpg", "legal-divorce-10.jpg"], "stack": false, "alt": "공감형 카피를 담은 이혼·가사 상담 메타 광고"}, {"no": "05", "slug": "probiotics", "name": "닥터페렌들리 프로바이오틱스", "client": "콘셉트 작업 · 반려동물 영양제", "field": "상세페이지 · AI 연출컷", "cat": "detail", "year": "2026", "imgs": ["probiotics-1.jpg", "probiotics-2.jpg", "probiotics-3.jpg"], "stack": true, "alt": "반려동물 프로바이오틱스 상세페이지"}, {"no": "06", "slug": "aurora", "name": "캐나다 오로라 투어", "client": "콘셉트 작업 · 여행", "field": "PC·모바일 메인 배너", "cat": "banner", "year": "2026", "imgs": ["aurora-1.jpg", "aurora-2.jpg"], "stack": false, "alt": "오로라 아래 이글루가 있는 여행 배너"}, {"no": "07", "slug": "health-routine", "name": "매일 건강 루틴", "client": "콘셉트 작업 · 헬스케어", "field": "카드뉴스 5장 시리즈", "cat": "card", "year": "2026", "imgs": ["health-routine-1.jpg", "health-routine-2.jpg", "health-routine-3.jpg", "health-routine-4.jpg", "health-routine-5.jpg"], "stack": false, "alt": "건강 습관 카드뉴스"}, {"no": "08", "slug": "ai-portraits", "name": "AI 모델 화보 컷", "client": "자체 콘셉트 · 뷰티·그루밍", "field": "AI 모델 · 클로즈업 4컷", "cat": "model", "year": "2026", "imgs": ["ai-portraits-1.jpg", "ai-portraits-2.jpg", "ai-portraits-3.jpg", "ai-portraits-4.jpg"], "stack": false, "alt": "AI 모델 뷰티 클로즈업"}, {"no": "09", "slug": "legal-meta", "name": "법률 상담 메타 피드 10종", "client": "콘셉트 작업 · 법률 서비스", "field": "메타 피드 광고 · 소구점별 10종", "cat": "ad", "year": "2026", "imgs": ["legal-meta-1.jpg", "legal-meta-2.jpg", "legal-meta-3.jpg", "legal-meta-4.jpg", "legal-meta-5.jpg", "legal-meta-6.jpg", "legal-meta-7.jpg", "legal-meta-8.jpg", "legal-meta-9.jpg", "legal-meta-10.jpg"], "stack": false, "alt": "법률 상담 메타 피드 광고"}, {"no": "10", "slug": "cloud-sofa", "name": "클라우드 소파", "client": "콘셉트 작업 · 가구", "field": "광고소재 · 세로·가로 3컷", "cat": "ad", "year": "2026", "imgs": ["cloud-sofa-1.jpg", "cloud-sofa-2.jpg", "cloud-sofa-3.jpg"], "stack": false, "alt": "아치형 공간의 크림색 클라우드 소파 광고"}, {"no": "11", "slug": "artisan-dining", "name": "아티장 다이닝", "client": "콘셉트 작업 · 가구", "field": "광고소재 · 블랙프라이데이 배너", "cat": "ad", "year": "2026", "imgs": ["artisan-dining-1.jpg", "artisan-dining-2.jpg", "artisan-dining-3.jpg", "artisan-dining-4.jpg"], "stack": false, "alt": "원목 다이닝 테이블 광고와 블랙프라이데이 배너"}, {"no": "12", "slug": "money-guide", "name": "머니 가이드 원페이지", "client": "콘셉트 작업 · 재테크 채널", "field": "원페이지 릴스 4편", "cat": "card", "year": "2026", "imgs": ["money-guide-1.jpg", "money-guide-2.jpg", "money-guide-3.jpg", "money-guide-4.jpg"], "stack": false, "alt": "다람쥐 캐릭터가 등장하는 재테크 원페이지"}, {"no": "13", "slug": "summer-ripple", "name": "Summer Ripple", "client": "콘셉트 작업 · 향수", "field": "제품 연출 · 광고 키비주얼", "cat": "ad", "year": "2026", "imgs": ["summer-ripple-1.jpg"], "stack": false, "alt": "물속 꽃 사이 Summer Ripple 향수 키비주얼"}, {"no": "14", "slug": "finland", "name": "핀란드 로바니에미", "client": "콘셉트 작업 · 여행", "field": "PC·모바일 메인 배너", "cat": "banner", "year": "2026", "imgs": ["finland-1.jpg", "finland-2.jpg"], "stack": false, "alt": "순록 썰매가 있는 핀란드 여행 배너"}, {"no": "15", "slug": "tea-tree", "name": "티트리 딥 클렌징", "client": "콘셉트 작업 · 헤어케어", "field": "광고소재 · 모델+제품 2컷", "cat": "ad", "year": "2026", "imgs": ["tea-tree-1.jpg", "tea-tree-2.jpg"], "stack": false, "alt": "샴푸 모델과 티트리 제품 광고"}, {"no": "16", "slug": "bali", "name": "발리 투어 여름 세일", "client": "콘셉트 작업 · 여행", "field": "PC·모바일 메인 배너", "cat": "banner", "year": "2026", "imgs": ["bali-1.jpg", "bali-2.jpg"], "stack": false, "alt": "발리 리조트 수영장 여행 배너"}, {"no": "17", "slug": "wool-coat", "name": "프리미엄 울코트", "client": "콘셉트 작업 · 패션", "field": "AI 모델 · 패션 광고", "cat": "ad", "year": "2026", "imgs": ["wool-coat-1.jpg"], "stack": false, "alt": "카멜 울코트를 입은 AI 모델 패션 광고"}, {"no": "18", "slug": "shingles", "name": "대상포진 예방 가이드", "client": "콘셉트 작업 · 헬스케어", "field": "원페이지 인포그래픽", "cat": "card", "year": "2026", "imgs": ["shingles-1.jpg"], "stack": false, "alt": "대상포진 예방 정보 원페이지"}, {"no": "19", "slug": "lombok", "name": "롬복 호텔 여름 세일", "client": "콘셉트 작업 · 숙박", "field": "PC 메인 배너", "cat": "banner", "year": "2026", "imgs": ["lombok-1.jpg"], "stack": false, "alt": "롬복 리조트 인피니티 풀 배너"}],
   "services": [
     {"no":"01","name":"광고소재 (메타·SNS)","slot":"price_brand","price":"1종 2만 5천 원~","scope":["Basic 1종 · 1~2사이즈 2만 5천 원","Standard 5종 세트 + 카피 기획 15만 원","Premium 10종 A/B 테스트팩 28만 원"],"time":["Basic 2일","Standard 4일","Premium 7일"],"get":["피드 1080×1350 · 스토리 규격","소구점별 카피","수정 1~3회"]},
     {"no":"02","name":"상세페이지","slot":"price_campaign","price":"19만 원~","scope":["Basic 디자인형(원고 제공) 19만 원","Standard 기획+디자인 · AI컷 5 · 35만 원","Premium 풀기획 · AI컷 10 · 썸네일·광고 3종 · 65만 원"],"time":["Basic 4일","Standard 7일","Premium 10일"],"get":["모바일 최적화 분할 이미지","JPG·PNG","수정 1~3회"]},
@@ -532,11 +532,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 (()=>{
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
   let data={};
-  try{data=JSON.parse($('#opadog-data').textContent)}catch(e){data={photos:{},projects:[],categories:[],services:[],pricing:{items:[],draft:[],rush:[]}}}
+  try{data=JSON.parse($('#opadog-data').textContent)}catch(e){data={base:'',projects:[],categories:[],services:[],pricing:{items:[],draft:[],rush:[]}}}
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
   const won=n=>Math.round(n).toLocaleString('ko-KR');
-  const P=k=>data.photos[k]||'';
+  const IMG=(f,sm)=>data.base+(sm?'sm/':'')+f;
+  const P=(p,sm)=>IMG(p.imgs[0],sm);
   $('#yr').textContent=new Date().getFullYear();
 
   /* ---------- hero: contact strip + grease pencil ---------- */
@@ -545,10 +546,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
   const svgFor=(t,d)=>{const pth={ellipse:'M5 4 C 20 1, 45 1, 56 5 C 59 15, 58 30, 54 37 C 40 39, 18 39, 6 36 C 2 26, 2 14, 7 3',x:'M10 6 L 50 34 M 49 5 L 11 35',crop:'M4 14 L 4 4 L 16 4 M 44 36 L 56 36 L 56 26'}[t]; return `<svg viewBox="0 0 60 40" preserveAspectRatio="none" aria-hidden="true" style="--d:${d}"><path pathLength="1" d="${pth}"/></svg>`};
   const bracket=[0.78,0.92,1,1.08,1.2,0.86]; const pos=['50% 50%','30% 40%','70% 50%','50% 30%','40% 70%','60% 60%'];
   for(let i=0;i<12;i++){
-    const pj=projs[i%Math.max(1,projs.length)]; if(!pj)break;
+    const pj=projs.filter(x=>!x.stack)[i%Math.max(1,projs.filter(x=>!x.stack).length)]; if(!pj)break;
     const f=document.createElement('button'); f.type='button'; f.className='frame'; f.dataset.target=pj.no;
     f.setAttribute('aria-label',`${pj.name} 작업으로 이동`);
-    f.innerHTML=`<img src="${P(pj.img)}" alt="" loading="lazy" decoding="async" style="object-position:${pos[i%6]};filter:brightness(${bracket[i%6]})"><span class="no mono">${String(i+2).padStart(2,'0')}A</span>`+
+    f.innerHTML=`<img src="${P(pj,1)}" alt="" loading="lazy" decoding="async" style="object-position:${pos[i%6]};filter:brightness(${bracket[i%6]})"><span class="no mono">${String(i+2).padStart(2,'0')}A</span>`+
       (marks[i]?svgFor(marks[i][0],marks[i][1]):'');
     strip.appendChild(f);
   }
@@ -594,9 +595,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
     b.innerHTML=`${c.name}<sup>${n}</sup>`; filters.appendChild(b);
   });
   data.projects.forEach(p=>{
-    const li=document.createElement('li'); li.className='row'; li.dataset.no=p.no; li.dataset.cat=p.cat; li.dataset.img=P(p.img); li.tabIndex=0;
-    li.setAttribute('aria-label',`${p.no} ${p.name} — ${p.field}`);
-    li.innerHTML=`<span class="row__no mono">${p.no}</span><span class="row__name">${p.name}</span><span class="row__client">${p.client}</span><span class="row__field">${p.field}</span><span class="row__yr mono">${p.year}</span><span class="row__thumb"><img src="${P(p.img)}" alt="${p.alt}" decoding="async"></span>`;
+    const li=document.createElement('li'); li.className='row'; li.dataset.no=p.no; li.dataset.cat=p.cat; li.dataset.img=P(p,1); li.dataset.idx=data.projects.indexOf(p); li.tabIndex=0;
+    li.setAttribute('aria-label',`${p.no} ${p.name} — ${p.field}, ${p.imgs.length}컷 보기`); li.setAttribute('role','button');
+    li.innerHTML=`<span class="row__no mono">${p.no}</span><span class="row__name">${p.name}</span><span class="row__client">${p.client}<span class="row__cnt mono"> · ${p.imgs.length}컷</span></span><span class="row__field">${p.field}</span><span class="row__yr mono">${p.year}</span><span class="row__thumb"><img src="${P(p,1)}" alt="${p.alt}" loading="lazy" decoding="async"></span>`;
     list.appendChild(li);
   });
   filters.addEventListener('click',e=>{
@@ -624,6 +625,28 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
     list.addEventListener('focusin',e=>{const row=e.target.closest('.row'); if(!row)return; const r=row.getBoundingClientRect(); tx=x=r.right-340; ty=y=r.top+40; pv.style.transform=`translate(${x}px,${Math.max(72,y-(pv.offsetHeight||300)/2)}px)`; show(row)});
     list.addEventListener('focusout',hide);
   }
+
+
+  /* ---------- lightbox ---------- */
+  const lb=$('#lb'), stage=$('#lbStage'), bar=$('.lb__bar'); let cp=null, ci=0, lastFocus=null;
+  function render(){ if(!cp)return; const n=cp.imgs.length;
+    $('#lbTitle').textContent=cp.name; $('#lbMeta').textContent=`${cp.client} · ${cp.field}`;
+    stage.classList.toggle('stack',cp.stack);
+    if(cp.stack){ stage.innerHTML=cp.imgs.map((f,k)=>`<img src="${IMG(f)}" alt="${cp.alt} ${k+1}/${n}">`).join(''); bar.hidden=true; stage.scrollTop=0; }
+    else { stage.innerHTML=`<img src="${IMG(cp.imgs[ci])}" alt="${cp.alt} ${ci+1}/${n}">`; bar.hidden=n<2; $('#lbCount').textContent=`${String(ci+1).padStart(2,'0')} / ${String(n).padStart(2,'0')}`;
+      if(n>1){const nx=new Image(); nx.src=IMG(cp.imgs[(ci+1)%n]);} }
+  }
+  function openP(p,i=0){ if(!p)return; cp=p; ci=i; lastFocus=document.activeElement; render(); if(typeof lb.showModal==='function'){ if(!lb.open)lb.showModal(); } else lb.setAttribute('open',''); document.body.style.overflow='hidden'; $('#lbClose').focus(); }
+  function closeLb(){ if(typeof lb.close==='function'&&lb.open)lb.close(); else {lb.removeAttribute('open'); document.body.style.overflow='';} }
+  lb.addEventListener('close',()=>{ document.body.style.overflow=''; if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true}); });
+  const step=d=>{ if(!cp||cp.stack)return; ci=(ci+d+cp.imgs.length)%cp.imgs.length; render(); };
+  $('#lbPrev').addEventListener('click',()=>step(-1)); $('#lbNext').addEventListener('click',()=>step(1)); $('#lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{ if(e.target===lb||e.target===stage)closeLb(); });
+  lb.addEventListener('keydown',e=>{ if(e.key==='ArrowRight')step(1); if(e.key==='ArrowLeft')step(-1); });
+  let sx=null; stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true}); stage.addEventListener('touchend',e=>{ if(sx==null)return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40)step(dx<0?1:-1); sx=null; });
+  list.addEventListener('click',e=>{ const row=e.target.closest('.row'); if(row)openP(data.projects[+row.dataset.idx]); });
+  list.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('row')){ e.preventDefault(); openP(data.projects[+e.target.dataset.idx]); } });
+  $$('[data-open]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); openP(data.projects.find(p=>p.slug===a.dataset.open)); }));
 
   /* ---------- VIEW cursor ---------- */
   const vc=$('#viewcur');
