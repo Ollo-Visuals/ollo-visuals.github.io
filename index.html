@@ -105,7 +105,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 .sheet__cap .note{font-family:var(--body);font-size:14px;color:var(--pencil);font-weight:600}
 .ring path,.frame svg path,.ok path{fill:none;stroke:var(--pencil);stroke-width:3.2;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 650ms var(--ease);transition-delay:calc(var(--d,0) * 220ms)}
 .ok{position:absolute;right:-22px;top:-40px;width:84px;height:46px;transform:rotate(-12deg);pointer-events:none;z-index:2}
-@media (max-width:600px){.ok{display:none}}
+@media (max-width:600px){.ok{display:none}.sheet__cap>.mono{display:none}.sheet__cap{justify-content:flex-end}}
 .drawn .ring path,.drawn .frame svg path,.drawn .ok path{stroke-dashoffset:0}
 .sound{position:absolute;right:10px;bottom:10px;height:32px;padding:0 10px;background:color-mix(in oklch,var(--darkroom) 75%,transparent);color:var(--silver);font-size:11px;font-family:var(--mono)}
 @media (max-width:600px){.sheet__strip{grid-template-columns:repeat(4,1fr)}.sheet__strip .frame:nth-child(n+5){display:none}}
@@ -142,18 +142,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 .peek img{display:block;width:100%;height:auto;max-height:70vh;object-fit:contain;background:var(--fixer)}
 .index-note{padding:var(--s24) 0 0;font-size:16px;color:var(--developer)}
 
-/* reel */
-.reel{margin-top:var(--s40);position:relative;background:#000}
-.reel canvas{width:100%;aspect-ratio:16/9;height:auto}
-.reel__bar{display:flex;align-items:center;gap:var(--s16);background:var(--fixer);padding:12px 16px;font-size:12px}
-.reel__bar button{height:36px;min-width:36px;padding:0 10px;border:1px solid var(--line);font-family:var(--mono);font-size:12px}
-.reel__bar button:hover{border-color:var(--silver)}
-.reel__bar input[type=range]{flex:1;accent-color:var(--red)}
-.reel__tc{color:var(--developer);min-width:96px;text-align:right}
-.reel__title{color:var(--silver);font-family:var(--body);font-weight:600;font-size:15px;min-width:120px}
-.reel__bar input[type=range]{min-width:0}
-@media (max-width:600px){.reel__bar{flex-wrap:wrap;gap:8px}.reel__title{min-width:0;flex:1}.reel__bar input[type=range]{order:5;flex-basis:100%}.reel__tc{min-width:0}}
-
 /* featured */
 .feat{margin-top:var(--s40);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s64);align-items:start}
 .feat .card:nth-child(2){margin-top:var(--s144)}
@@ -169,7 +157,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
 .viewcur{position:fixed;left:0;top:0;width:88px;height:88px;margin:-44px 0 0 -44px;border-radius:50%;background:var(--red);color:var(--darkroom);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:500;pointer-events:none;z-index:45;transform:scale(0);transition:transform var(--t-state) var(--ease)}
 .viewcur.on{transform:scale(1)}
 @media (hover:none){.card__img{cursor:auto}.card__img img{filter:none}}
-@media (max-width:760px){.feat{grid-template-columns:1fr;gap:var(--s40)}.feat .card:nth-child(2){margin-top:0}}
+@media (max-width:760px){.feat{grid-template-columns:1fr;gap:var(--s40)}.feat .card:nth-child(2){margin-top:0}.feat .card__img,.feat .card:nth-child(2) .card__img{aspect-ratio:1/1}}
 
 /* services */
 .svc{list-style:none}
@@ -327,27 +315,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
     <p class="index-note">카드뉴스 · 원페이지 · 메타 광고 A/B 세트 전체 등 더 많은 작업은 문의 시 분야별 포트폴리오로 보내드립니다.</p>
   </div>
   <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
-</section>
-
-<!-- 쇼릴 -->
-<section class="sec" id="reel" data-section="reel">
-  <div class="wrap">
-    <div class="sec__head">
-      <h2 class="sec__title">쇼릴</h2>
-      <p class="sec__desc">한 컷이 완성되기까지 고르고 다듬은 장면들을 필름처럼 넘겨 봅니다.</p>
-    </div>
-    <div class="reel">
-      <canvas id="reelCanvas" width="1280" height="720" aria-label="작업 이미지가 필름처럼 넘어가는 쇼릴"></canvas>
-      <div class="reel__bar">
-        <button type="button" id="reelPrev" aria-label="이전 컷">◂</button>
-        <button type="button" id="reelPlay" aria-label="일시정지" aria-pressed="true">❚❚</button>
-        <button type="button" id="reelNext" aria-label="다음 컷">▸</button>
-        <span class="reel__title" id="reelTitle">—</span>
-        <input type="range" id="reelScrub" min="0" max="1000" value="0" aria-label="쇼릴 위치">
-        <span class="reel__tc mono" id="reelTc">00:00:00:00</span>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- 대표 작업 2 -->
@@ -629,7 +596,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
   data.projects.forEach(p=>{
     const li=document.createElement('li'); li.className='row'; li.dataset.no=p.no; li.dataset.cat=p.cat; li.dataset.img=P(p.img); li.tabIndex=0;
     li.setAttribute('aria-label',`${p.no} ${p.name} — ${p.field}`);
-    li.innerHTML=`<span class="row__no mono">${p.no}</span><span class="row__name">${p.name}</span><span class="row__client">${p.client}</span><span class="row__field">${p.field}</span><span class="row__yr mono">${p.year}</span><span class="row__thumb"><img src="${P(p.img)}" alt="${p.alt}" loading="lazy"></span>`;
+    li.innerHTML=`<span class="row__no mono">${p.no}</span><span class="row__name">${p.name}</span><span class="row__client">${p.client}</span><span class="row__field">${p.field}</span><span class="row__yr mono">${p.year}</span><span class="row__thumb"><img src="${P(p.img)}" alt="${p.alt}" decoding="async"></span>`;
     list.appendChild(li);
   });
   filters.addEventListener('click',e=>{
@@ -657,46 +624,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spac
     list.addEventListener('focusin',e=>{const row=e.target.closest('.row'); if(!row)return; const r=row.getBoundingClientRect(); tx=x=r.right-340; ty=y=r.top+40; pv.style.transform=`translate(${x}px,${Math.max(72,y-(pv.offsetHeight||300)/2)}px)`; show(row)});
     list.addEventListener('focusout',hide);
   }
-
-  /* ---------- reel (canvas) ---------- */
-  const cv=$('#reelCanvas'), cx=cv.getContext('2d');
-  const shots=data.projects.map(p=>({title:p.name,sub:p.field,src:P(p.img),img:null}));
-  const toGray=im=>{const c=document.createElement('canvas'); const sc=Math.min(1,1600/im.width); c.width=Math.round(im.width*sc); c.height=Math.round(im.height*sc); const g=c.getContext('2d');
-    g.drawImage(im,0,0,c.width,c.height); return c};
-  shots.forEach(s=>{const im=new Image(); im.decoding='async'; im.onload=()=>{s.img=toGray(im); draw()}; im.src=s.src});
-  const SHOT=3.2, TOTAL=shots.length*SHOT; let t=0, playing=!reduce, lastTs=0, visible=false, scrubbing=false;
-  const playBtn=$('#reelPlay');
-  const setPlay=v=>{playing=v; playBtn.textContent=v?'❚❚':'▶'; playBtn.setAttribute('aria-pressed',String(v)); playBtn.setAttribute('aria-label',v?'일시정지':'재생')};
-  setPlay(playing);
-  const grain=document.createElement('canvas'); grain.width=256; grain.height=256; const gx=grain.getContext('2d');
-  function makeGrain(){const id=gx.createImageData(256,256); for(let i=0;i<id.data.length;i+=4){const v=Math.random()*255|0; id.data[i]=id.data[i+1]=id.data[i+2]=v; id.data[i+3]=14} gx.putImageData(id,0,0)}
-  makeGrain();
-  function tc(sec){const f=Math.floor((sec%1)*24), s=Math.floor(sec)%60, m=Math.floor(sec/60)%60; return `00:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}:${String(f).padStart(2,'0')}`}
-  function draw(){
-    const W=cv.width,H=cv.height; cx.fillStyle='#000'; cx.fillRect(0,0,W,H);
-    const i=Math.floor(t/SHOT)%shots.length, local=(t%SHOT)/SHOT, s=shots[i];
-    const jx=reduce||!playing?0:(Math.random()-.5)*2, jy=reduce||!playing?0:(Math.random()-.5)*3;
-    if(s&&s.img){
-      const im=s.img, sc=Math.max(W/im.width,H/im.height)*(1.04+local*0.07), w=im.width*sc, h=im.height*sc, panX=(i%2?-1:1)*local*W*0.02;
-      cx.drawImage(im,(W-w)/2+jx+panX,(H-h)/2+jy,w,h);
-    }
-    const fade=Math.min(1,local*8,(1-local)*8); cx.fillStyle=`rgba(0,0,0,${1-fade})`; cx.fillRect(0,0,W,H);
-    if(!reduce&&local<0.05){cx.fillStyle=`rgba(236,232,225,${(0.05-local)*9})`; cx.fillRect(0,0,W,H)}
-    if(!reduce){ if(playing&&Math.random()<.5)makeGrain(); cx.drawImage(grain,0,0,W,H);
-      if(playing&&Math.random()<.08){cx.strokeStyle='rgba(255,255,255,.25)'; cx.lineWidth=1; const sx=Math.random()*W; cx.beginPath(); cx.moveTo(sx,0); cx.lineTo(sx+(Math.random()-.5)*20,H); cx.stroke()} }
-    const vg=cx.createRadialGradient(W/2,H/2,H*.3,W/2,H/2,H*.9); vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.55)'); cx.fillStyle=vg; cx.fillRect(0,0,W,H);
-    cx.fillStyle='rgba(236,232,225,.85)'; cx.font='500 22px "Martian Mono", monospace'; cx.fillText(tc(t),32,H-32); cx.fillText(String(i+1).padStart(2,'0')+'/'+String(shots.length).padStart(2,'0'),W-120,H-32);
-    if(s){cx.textAlign='center'; cx.font='400 28px "Gowun Batang", serif'; cx.fillStyle='rgba(0,0,0,.55)'; const tw=cx.measureText(s.title+' — '+s.sub).width; cx.fillRect(W/2-tw/2-14,H-96,tw+28,40); cx.fillStyle='rgba(236,232,225,.95)'; cx.fillText(s.title+' — '+s.sub,W/2,H-67); cx.textAlign='left'}
-    $('#reelTitle').textContent=s?s.title:'—'; $('#reelTc').textContent=tc(t);
-    if(!scrubbing)$('#reelScrub').value=String(Math.round(t/TOTAL*1000));
-  }
-  function frame(ts){ if(!lastTs)lastTs=ts; const dt=Math.min(.1,(ts-lastTs)/1000); lastTs=ts; if(playing&&visible)t=(t+dt)%TOTAL; draw(); if(visible)requestAnimationFrame(frame); else lastTs=0 }
-  new IntersectionObserver(es=>es.forEach(e=>{const was=visible; visible=e.isIntersecting; if(visible&&!was)requestAnimationFrame(frame)}),{threshold:.05}).observe(cv);
-  const jump=d=>{const i=(Math.floor(t/SHOT)+d+shots.length)%shots.length; t=i*SHOT+0.01; draw()};
-  $('#reelPrev').addEventListener('click',()=>jump(-1)); $('#reelNext').addEventListener('click',()=>jump(1));
-  playBtn.addEventListener('click',()=>setPlay(!playing));
-  const scrub=$('#reelScrub'); scrub.addEventListener('input',()=>{scrubbing=true; t=scrub.value/1000*TOTAL; draw()}); scrub.addEventListener('change',()=>{scrubbing=false});
-  draw();
 
   /* ---------- VIEW cursor ---------- */
   const vc=$('#viewcur');
